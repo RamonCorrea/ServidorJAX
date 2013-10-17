@@ -1,0 +1,2 @@
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.exe
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.pdb

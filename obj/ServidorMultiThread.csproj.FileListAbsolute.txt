@@ -1,0 +1,12 @@
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.exe
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.pdb
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\bin\Debug\ServidorMultiThread.exe
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\bin\Debug\ServidorMultiThread.pdb
+E:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ResolveAssemblyReference.cache
+C:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.exe
+C:\RCORREA\LOGAM\ServidorMultiThread\ServidorMultiThread\obj\Debug\ServidorMultiThread.pdb
+D:\Comunicaciones\Servidor\bin\Debug\ServidorMultiThread.exe
+D:\Comunicaciones\Servidor\bin\Debug\ServidorMultiThread.pdb
+D:\Comunicaciones\Servidor\obj\Debug\ResolveAssemblyReference.cache
+D:\Comunicaciones\Servidor\obj\Debug\ServidorMultiThread.exe
+D:\Comunicaciones\Servidor\obj\Debug\ServidorMultiThread.pdb
