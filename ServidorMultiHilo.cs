@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace LogamServer
 {
-    /* CLASE QUE SE ENCARGA DE TRATAR LAS PETICIONES DE CONEXION QUE RECIBE EL SERVIDOR */
+    /* CLASE QUE SE ENCARGAs DE TRATAR LAS PETICIONES DE CONEXION QUE RECIBE EL SERVIDOR */
     class ServidorMultiHilo
     {
         Socket cliente;
