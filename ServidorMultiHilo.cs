@@ -40,14 +40,23 @@ namespace LogamServer
                     /* INSTRUCCIONES QUE SE ENCARGAN DE LA COMUNICACION ENTRE EL SERVIDOR Y EL CLIENTE */
                         int bytesReci = cliente.Receive(dataReceive);
                         mensaje = Encoding.Default.GetString(dataReceive, 0, bytesReci);
-                        ComponeCadena cadena = new ComponeCadena(mensaje);
-                        string Resul = ConexioSQL(cadena.DevuelveCodTarjeta(),cadena.DevuelveFecha(),cadena.DevuelveHora(),"192.168.100.105",cadena.DevuelveEvento(),cadena.DevuelveFechaHora());
-                        Console.WriteLine("{0} {1}", cliente.RemoteEndPoint,Resul);
+                        if (mensaje == "1012ghost")
+                        {
+                            Console.WriteLine(">> {0} esta en Linea", cliente.RemoteEndPoint);
+                            cliente.Disconnect(true);
+                            break;
+                        }
+                        else
+                        {
+                            ComponeCadena cadena = new ComponeCadena(mensaje);
+                            string Resul = ConexioSQL(cadena.DevuelveCodTarjeta(), cadena.DevuelveFecha(), cadena.DevuelveHora(), "192.168.100.105", cadena.DevuelveEvento(), cadena.DevuelveFechaHora());
+                            Console.WriteLine("{0} {1}", cliente.RemoteEndPoint, Resul);
 
-                        mensaje = "Informacion Recibida";
-                        dataSend = Encoding.Default.GetBytes(mensaje);
-                        cliente.Send(dataSend);
-                        cliente.Disconnect(true);
+                            mensaje = "Informacion Recibida";
+                            dataSend = Encoding.Default.GetBytes(mensaje);
+                            cliente.Send(dataSend);
+                            cliente.Disconnect(true);
+                        }
                         
                 }
 
