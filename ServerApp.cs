@@ -16,7 +16,6 @@ namespace LogamServer
             IPEndPoint direccionServidor = new IPEndPoint(IPAddress.Parse("192.168.100.105"), 1001);
             SocketServidor.Bind(direccionServidor);
             Socket SocketCliente;
-            Hashtable ListaUsuarios = new Hashtable();          
 
             /* INSTRUCCION LA CUAL ESPECIFICA LA CANTIDAD DE PETICIONES EN COLA ANTES DE QUE EL SERVIDOR DIGA 
              * QUE ESTA COPADO */
@@ -29,12 +28,13 @@ namespace LogamServer
             while (true)
             {
                 Console.WriteLine("Esperando Conexiones");
+                //Rescate rescateMarcas = new Rescate();
+
                 try
                 {
                     /* INSTRUCCION QUE SE ENCARGA DE TOMAR LAS PETICIONES DE LOS CLIENTES ENTRANTES */
                     SocketCliente = SocketServidor.Accept();
                     Console.WriteLine(">> Cliente {0} se ha conectado ...", SocketCliente.RemoteEndPoint);
-                    ListaUsuarios.Add(SocketCliente.RemoteEndPoint, "Activo");
                     ServidorMultiHilo cliente = new ServidorMultiHilo(SocketCliente);
                 }
                 catch (Exception ex)

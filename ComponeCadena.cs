@@ -17,7 +17,7 @@ namespace LogamServer
         public string DevuelveCodTarjeta()
         {
             string CodTarjeta = cadena.Remove(21);
-            CodTarjeta = CodTarjeta.Remove(0, 8);
+            CodTarjeta = CodTarjeta.Remove(0,11);
             return CodTarjeta;
         }
 
@@ -42,7 +42,8 @@ namespace LogamServer
         public string DevuelveEvento()
         {
             string evento = cadena.Remove(0, 34);
-            evento = evento.Remove(1, 2);
+            evento = evento.Remove(0, 1);
+            evento = evento.Remove(1, 1);
             return evento;
         }
 

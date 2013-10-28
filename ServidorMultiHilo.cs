@@ -31,7 +31,9 @@ namespace LogamServer
         {
             byte[] dataReceive = new byte[70];
             byte[] dataSend = new byte[70];
-            String mensaje;
+            string IP = cliente.RemoteEndPoint.ToString();
+            string[] Datos = IP.Split(':');
+            IP = Datos[0].ToString();
 
             while (cliente.Connected == true)
             {
@@ -39,25 +41,22 @@ namespace LogamServer
                 {       
                     /* INSTRUCCIONES QUE SE ENCARGAN DE LA COMUNICACION ENTRE EL SERVIDOR Y EL CLIENTE */
                         int bytesReci = cliente.Receive(dataReceive);
-                        mensaje = Encoding.Default.GetString(dataReceive, 0, bytesReci);
+                        string mensaje = Encoding.Default.GetString(dataReceive, 0, bytesReci);
+                        
                         if (mensaje == "1012ghost")
                         {
                             Console.WriteLine(">> {0} esta en Linea", cliente.RemoteEndPoint);
                             cliente.Disconnect(true);
-                            break;
                         }
                         else
                         {
                             ComponeCadena cadena = new ComponeCadena(mensaje);
-                            string Resul = ConexioSQL(cadena.DevuelveCodTarjeta(), cadena.DevuelveFecha(), cadena.DevuelveHora(), "192.168.100.105", cadena.DevuelveEvento(), cadena.DevuelveFechaHora());
+                            string Resul = ConexioSQL(cadena.DevuelveCodTarjeta(), cadena.DevuelveFecha(), cadena.DevuelveHora(), IP, cadena.DevuelveEvento(), cadena.DevuelveFechaHora());
                             Console.WriteLine("{0} {1}", cliente.RemoteEndPoint, Resul);
-
-                            mensaje = "Informacion Recibida";
-                            dataSend = Encoding.Default.GetBytes(mensaje);
+                            dataSend = Encoding.Default.GetBytes(Resul);
                             cliente.Send(dataSend);
                             cliente.Disconnect(true);
                         }
-                        
                 }
 
                 /* EXCEPTION LANZADA CUANDO SE CUMPLE EL TIEMPO MAXIMO DE ESPERA EN LA RECEPCION DE INFORMACION */
@@ -65,14 +64,12 @@ namespace LogamServer
                 {
                     Console.WriteLine(" >> El cliente {0} se ha desconectado ",cliente.RemoteEndPoint);
                     cliente.Disconnect(true);
-                    break;
                 }
 
                 catch (Exception)
                 {
                     Console.WriteLine(" >> El cliente {0} se ha desconectado ", cliente.RemoteEndPoint);
                     cliente.Disconnect(true);
-                    break;
                 }
             } 
         }
@@ -85,7 +82,7 @@ namespace LogamServer
             try
             {
                 string Resultado;
-                string cadena = (@"data source = RCORREA ; initial catalog = BD_STANDAR_LOGAM; user id = LOGAM; password = LOGAMM");
+                string cadena = (@"data source = SVRLOGAM2008 ; initial catalog = BD_ANDINA_2010; user id = LOGAM; password = LOGAMM");
                 cone = new SqlConnection(cadena);
                 SqlCommand ProcedureStore = new SqlCommand();
 
