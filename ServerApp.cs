@@ -13,7 +13,7 @@ namespace LogamServer
         {
             /* VARIABLES */
             Socket SocketServidor = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint direccionServidor = new IPEndPoint(IPAddress.Parse("192.168.100.105"), 1001);
+            IPEndPoint direccionServidor = new IPEndPoint(IPAddress.Parse("192.168.100.26"), 1001);
             SocketServidor.Bind(direccionServidor);
             Socket SocketCliente;
 

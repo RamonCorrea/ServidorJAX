@@ -16,8 +16,10 @@ namespace LogamServer
         /* ESTA FUNCION SE LE DEBE ESPECIFICAR EL LARGO DE CODIGO DEL TRABAJADOR */
         public string DevuelveCodTarjeta()
         {
+            
+            
             string CodTarjeta = cadena.Remove(21);
-            CodTarjeta = CodTarjeta.Remove(0,11);
+            CodTarjeta = CodTarjeta.Remove(0,8);
             return CodTarjeta;
         }
 

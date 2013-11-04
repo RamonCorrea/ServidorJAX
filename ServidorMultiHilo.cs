@@ -82,7 +82,7 @@ namespace LogamServer
             try
             {
                 string Resultado;
-                string cadena = (@"data source = SVRLOGAM2008 ; initial catalog = BD_ANDINA_2010; user id = LOGAM; password = LOGAMM");
+                string cadena = (@"data source = RCORREA; initial catalog = BD_STANDAR_LOGAM; user id = LOGAM; password = LOGAMM");
                 cone = new SqlConnection(cadena);
                 SqlCommand ProcedureStore = new SqlCommand();
 
@@ -91,7 +91,7 @@ namespace LogamServer
 
                 ProcedureStore.Connection = cone;
                 ProcedureStore.CommandType = CommandType.StoredProcedure;
-                ProcedureStore.CommandText = "Proc_Controles_Generales";
+                ProcedureStore.CommandText = "Proc_Controles_Generales_JAX";
                 ProcedureStore.CommandTimeout = 10;
 
                 ProcedureStore.Parameters.Add(new SqlParameter("@Nro_Tarjeta", SqlDbType.Char));
@@ -130,8 +130,8 @@ namespace LogamServer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return "Error";
+                Console.WriteLine("Hay un problema en la conexion hacia el servidor");
+                return "Servidor Fuera de Linea";
             }
         }
     }
