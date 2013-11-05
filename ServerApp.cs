@@ -12,8 +12,10 @@ namespace LogamServer
         static void Main(string[] args)
         {
             /* VARIABLES */
+            ManejoArchivo myarchivo = new ManejoArchivo();
+            int puerto = Convert.ToInt32(myarchivo.Datos[1].ToString());
             Socket SocketServidor = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint direccionServidor = new IPEndPoint(IPAddress.Parse("192.168.100.26"), 1001);
+            IPEndPoint direccionServidor = new IPEndPoint(IPAddress.Parse(myarchivo.Datos[0].ToString()), puerto);
             SocketServidor.Bind(direccionServidor);
             Socket SocketCliente;
 

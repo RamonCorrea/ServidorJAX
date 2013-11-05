@@ -7,19 +7,19 @@ namespace LogamServer
     class ComponeCadena
     {
         private string cadena;
+        private int largoCadena;
 
-        public ComponeCadena(string cadena)
+        public ComponeCadena(string cadena, int largo)
         {
             this.cadena = cadena;
+            largoCadena = (21 - largo);
         }
 
         /* ESTA FUNCION SE LE DEBE ESPECIFICAR EL LARGO DE CODIGO DEL TRABAJADOR */
         public string DevuelveCodTarjeta()
-        {
-            
-            
+        {  
             string CodTarjeta = cadena.Remove(21);
-            CodTarjeta = CodTarjeta.Remove(0,8);
+            CodTarjeta = CodTarjeta.Remove(0,largoCadena);
             return CodTarjeta;
         }
 
